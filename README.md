@@ -1,8 +1,7 @@
 <p align="left">
-  <img src="images/logo.png" width="100" height="100">
+  <img src="images/logo.png" alt="Logo" width="50" height="50" style="float:left; padding-right:10px;" />
+  <h1>Collaborative Performance Prediction for Large Language Models (CPP for LLMs)</h1>
 </p>
-
-# Collaborative Performance Prediction for Large Language Models (CPP for LLMs)
 
 ### preprocess.ipynb
 - **Description**: convert all tables in raw_data to the overall table all_benchmark_score.csv and all_benchmark_rank.csv.
