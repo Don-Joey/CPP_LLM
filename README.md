@@ -1,4 +1,5 @@
-# Collaborative Performance Prediction for Large Language Models (CPP for LLMs)
+| <img src="images/logo.png" width="100" height="100"> | # Collaborative Performance Prediction for Large Language Models (CPP for LLMs) |
+|:---:|:---|
 
 ### preprocess.ipynb
 - **Description**: convert all tables in raw_data to the overall table all_benchmark_score.csv and all_benchmark_rank.csv.
