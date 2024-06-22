@@ -1,6 +1,6 @@
 <table>
 <tr>
-<td><img src="images/logo.png" alt="Logo" width="100" height="100"/></td>
+<td><img src="images/logo.png" alt="Logo" width="200" height="100"/></td>
 <td><h1>Collaborative Performance Prediction for Large Language Models (CPP for LLMs)</h1></td>
 </tr>
 </table>
