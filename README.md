@@ -1,5 +1,5 @@
 <p align="left">
-  <img src="images/logo.png" alt="Logo" width="50" height="50" style="float:left; padding-right:10px;" />
+  <img src="images/logo.png" alt="Logo" width="100" height="100" style="float:left; padding-right:10px;" />
   <h1>Collaborative Performance Prediction for Large Language Models (CPP for LLMs)</h1>
 </p>
 
