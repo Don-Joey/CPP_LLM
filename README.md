@@ -1,4 +1,4 @@
-# collaborative_filtering_4_LLM
+# Collaborative Performance Prediction for Large Language Models (CPP for LLMs)
 
 ### preprocess.ipynb
 - **Description**: convert all tables in raw_data to the overall table all_benchmark_score.csv and all_benchmark_rank.csv.
