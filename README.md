@@ -14,7 +14,7 @@ This project introduces the Collaborative Performance Prediction (CPP) framework
 
 ## Table of Contents
 - [Installation](#installation)
-- [Data](data)
+- [Data](#data)
 - [Usage](#usage)
 - [Examples](#examples)
 - [API Reference](#api-reference)
