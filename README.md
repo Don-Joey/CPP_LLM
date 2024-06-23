@@ -2,7 +2,7 @@
 <table>
 <tr>
   <td><img src="images/logo.jpg" alt="Logo" width="175"></td>
-  <td><h1> Collaborative Performance Prediction for Large Language Models</h1><p>Here is more detailed text that will appear next to the image.</p></td>
+  <td><h1> Collaborative Performance Prediction for Large Language Models</h1><p>Collabrative filtering method Based on collaborative performance data, model factors and Task factors.</p></td>
 </tr>
 </table>
 
