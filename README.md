@@ -31,6 +31,9 @@ git clone https://github.com/Don-Joey/CPP_LLM.git
 # Navigate to the project directory
 cd CPP_LLM
 
+# Create conda environment
+conda create -n CPP python=3.10
+
 # Install dependencies
 pip install -r requirements.txt
 ```
