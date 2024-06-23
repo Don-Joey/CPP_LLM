@@ -1,5 +1,5 @@
-title: |
-  ![Collaborative Performance Prediction for Large Language Models (CPP for LLMs)](images/logo.jpg){width=1in}  
+Collaborative Performance Prediction for Large Language Models (CPP for LLMs): |
+  ![](images/logo.jpg){width=1in}  
  
 
 
