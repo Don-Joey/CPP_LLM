@@ -1,0 +1,73 @@
+﻿Model Name,family,Pretraining Dataset Size(B),Parameter Size(M),Finetuning,GPUh,FLOPs,Context window,batch size(M),Layers,Number Heads,Key/Value Size,bottleneck activation size,Carbon Emission (tCO2Eq)
+LLama-2-7B,LLama-2,2000,7000,No,184320,,4096,4,32,32,8,11008,31.22
+LLama-2-13B,LLama-2,2000,13000,No,368640,,4096,4,40,40,8,13824,62.44
+LLama-2-70B,LLama-2,2000,70000,No,1720320,,4096,4,80,64,8,28672,291.42
+Llama 3 8B,LLama-3,15000,8000,No,1300000,,8192,4,32,32,8,14336,390
+Llama 3 70B,LLama-3,15000,70000,No,6400000,,8192,4,80,64,8,28672,1900
+GLM-130B,GLM,400,130000,No,1105920,,2048,,70,96,,12288,257.01
+LLaMA-7B,LLama,1000,6700,No,82432,,2048,4,32,32,,4096,14
+LLaMA-13B,LLama,1000,13000,No,135168,,2048,4,40,40,,5120,23
+LLaMA-33B,LLama,1400,32500,No,530432,,2048,4,60,52,,6656,90
+LLaMA-65B,LLama,1400,65200,No,1022362,,2048,4,80,64,,8192,173
+GPT-3-175B,GPT-3,300,175000,No,,,2048,3.2,96,96,128,12288,552
+PaLM-540B,PaLM,780,540350,No,7396392,,2048,4,118,48,256,18432,271.43
+Claude-V3 Haiku,claude,4000,20000,Yes,,,200000,,,,,,
+Claude-V3 Sonnet,claude,4000,70000,Yes,,,200000,,,,,,
+Claude-V3 Opus,claude,4000,2000000,Yes,,,200000,,,,,,
+GPT-4,gpt,,,Yes,,,,,,,,,
+gpt-3.5,gpt,,,Yes,,,,,,,,,
+BLOOM-176B,BLOOM,366,176000,No,1082990,,2048,,70,112,,14336,25
+Luminous Base,Luminous,402,13000,No,95000,,,,,,,,3.17
+Luminous Extended,Luminous,460,30000,No,360000,,,,,,,,11.95
+Luminous Supreme,Luminous,560,70000,No,839000,,,,,,,,6.45
+OPT-175B,OPT,180,175000,No,,145824,2048,2,96,96,,12288,75
+GPT-NeoX-20B,GPT-NeoX,400,20000,No,,11232,2048,3.15,44,64,,6144,21.03
+GPT-J-6B,GPT-J,400,6000,No,,,2048,,28,16,256,16384,
+sheared llama-2.7B,sheared llama,50,2700,No,,,4096,1,,,,,
+sheared llama-1.3B,sheared llama,50,1300,No,,,4096,1,,,,,
+INCITE-Base-3B,incite,800,3000,No,,,2048,,32,32,,10240,
+INCITE-Base-7B,incite,800,3000,No,,,2048,,32,32,,16384,
+TinyLlama-1.1B,tinyllama,3000,1100,No,3456,,2048,,16,22,,5632,
+OpenLLaMA-3B-v1,openllama,1000,3000,No,,,,,,,,,
+OpenLLaMA-3B-v2,openllama,1000,3000,No,,,,,,,,,
+Pythia-1.4B,pythia,300,1400,No,,7120,2048,2,24,16,,,
+Pythia-2.8B,pythia,300,2800,No,,14240,2048,2,32,32,,,
+Falcon-7B,falcon,1000,7000,No,,,2048,,32,64,1,4544,
+Falcon-40B,falcon,1500,40000,No,,,2048,,60,64,8,8192,
+Falcon-180B,falcon,3500,180000,No,,,2048,,80,64,8,14848,
+Mistral 7B,mistral,,7000,No,,,4096,,32,32,8,14336,
+MPT-30B,mpt,1000,30000,No,,,8192,,48,64,,7168,
+MPT-7B,mpt,1000,7000,No,,,2048,,32,32,,4096,
+chinchilla,chinchilla,1400,70000,No,,5.76E+23,2048,3,80,64,128,8192,
+Pythia-70M,pythia,300,70,No,510,,2048,2,6,8,,,
+Pythia-160M,pythia,300,160,No,1030,,2048,2,12,12,,,
+Pythia-410M,pythia,300,410,No,2540,,2048,2,24,16,,,
+Pythia-1B,pythia,300,1000,No,4830,,2048,2,16,8,,,
+Pythia-6.9B,pythia,300,6900,No,33500,,2048,2,32,32,,,
+Pythia-12B,pythia,300,12000,No,72300,,2048,2,36,40,,,
+Gopher - 280B,gopher,300,280000,No,,,2048,3,80,128,128,16384,380
+Gopher - 44M,gopher,300,44,No,,,2048,0.25,8,16,32,512,
+Gopher - 117M,gopher,300,117,No,,,2048,0.25,12,12,64,768,
+Gopher - 417M,gopher,300,417,No,,,2048,0.25,12,12,128,1536,
+Gropher - 1.4B,gopher,300,1400,No,,,2048,0.25,24,16,128,2048,
+Gopher - 7.1B,gopher,300,7100,No,,,2048,2,32,32,128,4096,
+MT-NLG 530B,MT-NLG,338,530000,No,,,2048,,105,128,,20480,
+GLaM,GLaM,1607,1200000,No,1024,,1024,1,64,128,128,8192,106.5
+Phi-1.5-1.3B,Phi-1.5,150,1300,No,1500,,2048,,24,32,64,,
+Phi-2-2.7B,Phi-2,1400,2700,No,32256,,2048,,32,32,32,,
+Yi-6b,Yi,3100,6000,No,9216,,4096,4,32,32,4,4096,
+Yi-9b,Yi,3100,9000,No,30720,,4096,4,32,56,8,7168,
+Baichuan 1-7B,Baichuan,1400,7000,No,,,4096,,32,32,,,
+Baichuan 1-13B-Base,Baichuan,1400,13000,No,,,4096,,40,40,,,
+Baichuan 2-7B-Base,Baichuan,2600,7000,No,,,4096,,32,32,,,
+Baichuan 2-13B-Base,Baichuan,2600,13000,No,,,4096,,40,40,,,
+InternLM2-7B,InternLM,2000,7000,No,,,32000,4,32,,8,,
+InternLM2-20B,InternLM,2600,20000,No,,,32000,5,48,,8,,
+Skywork-13B,skywork,3200,13000,No,479232,,4096,16,52,36,128,12288,
+BlueLM-7B,bluelm,2600,7000,No,,,2048,32,32,32,128,11008,
+Qwen-7B,qwen,2400,7000,No,,,2048,4,32,32,,,
+Qwen-14B,qwen,3000,14000,No,,,2048,4,40,40,,,
+TigerBot-13b,tigerbot,500,13000,No,,,2048,4,,,,,
+TigerBot-70b,tigerbot,500,70000,No,,,2048,4,,,,,
+Gemma-2b,gemma,3000,2000,No,,,8192,,18,8,1,32768,29
+Gemma-7b,gemma,6000,7000,No,,,8192,,28,16,16,49152,108.5
