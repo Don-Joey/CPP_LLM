@@ -1,8 +1,6 @@
 title: |
-  ![](images/logo.jpg){width=1in}  
-  Adding a Logo to LaTeX Title
-
-
+  ![Collaborative Performance Prediction for Large Language Models (CPP for LLMs)](images/logo.jpg){width=1in}  
+ 
 
 
 ### preprocess.ipynb
