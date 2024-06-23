@@ -1,6 +1,10 @@
-# Collaborative Performance Prediction for Large Language Models <img src="images/logo.jpg" alt="Image" style="width:50px;height:50px;">
- 
 
+<table>
+<tr>
+  <td><img src="images/logo.jpg" alt="Logo" width="75"></td>
+  <td><h1> Collaborative Performance Prediction for Large Language Models</h1><p>Here is more detailed text that will appear next to the image.</p></td>
+</tr>
+</table>
 
 ### preprocess.ipynb
 - **Description**: convert all tables in raw_data to the overall table all_benchmark_score.csv and all_benchmark_rank.csv.
