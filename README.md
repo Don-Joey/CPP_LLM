@@ -23,6 +23,18 @@ This project introduces the Collaborative Performance Prediction (CPP) framework
 - [Citation](#citation)
 - [Acknowledgments](#acknowledgments)
 
+## Installation
+```bash
+# Clone the repository
+git clone https://github.com/yourusername/cpp-for-llms.git
+
+# Navigate to the project directory
+cd cpp-for-llms
+
+# Install dependencies
+pip install -r requirements.txt
+
+
 ### preprocess.ipynb
 - **Description**: convert all tables in raw_data to the overall table all_benchmark_score.csv and all_benchmark_rank.csv.
 
