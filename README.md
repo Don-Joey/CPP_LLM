@@ -6,10 +6,11 @@
 </tr>
 </table>
 
-![Figure 1: Description of Figure](images/framework.png "Figure 1")
+
 
 ## Description
 This project introduces the Collaborative Performance Prediction (CPP) framework, which enhances the predictability of large language model (LLM) performance across various tasks. It leverages historical performance data and design factors for both models and tasks to enhance prediction accuracy, offering significant improvements over traditional scaling laws. Our framework consists of two components: 1. collaborative performance data and 2) collaborative prediction methods, for instance, Matrix Factorization, Neural Collaborative Filtering and so on. We anticipate that an accurate score can be predicted based on the historical performance of various models on downstream tasks.
+![Figure 1: Description of Figure](images/framework.png "Figure 1")
 
 ## Table of Contents
 - [Installation](#installation)
