@@ -1,6 +1,8 @@
+title: |
+  ![](images/logo.jpg){width=1in}  
+  Adding a Logo to LaTeX Title
 
 
-# <img src="images/logo.jpg" alt="Image" style="width: 100px;"/> Collaborative Performance Prediction for Large Language Models (CPP for LLMs)
 
 
 ### preprocess.ipynb
