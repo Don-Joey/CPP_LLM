@@ -1,7 +1,7 @@
 
 <table>
 <tr>
-  <td><img src="images/logo.jpg" alt="Logo" width="175"></td>
+  <td><img src="images/logo.jpg" alt="Logo" width="200"></td>
   <td><h1> Collaborative Performance Prediction for Large Language Models</h1><p>Collabrative filtering method based on collaborative performance score matrix, model factors and task factors.</p></td>
 </tr>
 </table>
