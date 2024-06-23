@@ -29,7 +29,7 @@ This project introduces the Collaborative Performance Prediction (CPP) framework
 git clone https://github.com/Don-Joey/CPP_LLM.git
 
 # Navigate to the project directory
-cd cpp-for-llms
+cd CPP_LLM
 
 # Install dependencies
 pip install -r requirements.txt
