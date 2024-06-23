@@ -1,6 +1,6 @@
 
 
-# <img src="image.jpg" alt="Image" style="width: 100px;"/> Collaborative Performance Prediction for Large Language Models (CPP for LLMs)
+# <img src="images/logo.jpg" alt="Image" style="width: 100px;"/> Collaborative Performance Prediction for Large Language Models (CPP for LLMs)
 
 
 ### preprocess.ipynb
