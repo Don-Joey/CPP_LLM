@@ -40,14 +40,5 @@ pip install -r requirements.txt
 ## Data
 As the first essential component, our framework supports the use of the historical performance from open-source leaderboards such as the Open LLM leaderboard, HELM, and OpenCompass as a score matrix. The specificity of this data is that the prompt settings are consistent, the matrix density is high, and the performance scores are reliable. Here, we provide the HELM core leaderboard as a representative of this type of data []. At the same time, we also support extracting the performance of models on tasks from publicly available academic papers, technical reports, and model cards. The matrix produced by this data is characterized by lower density, but it can cover more models and downstream tasks. The variation in testing prompt settings is greater, and the performance scores may not necessarily be accurate. Additionally, we support the introduction of model factors and task factors for prediction, so we have also collected information on model factors and task factors.
 
-### preprocess.ipynb
-- **Description**: convert all tables in raw_data to the overall table all_benchmark_score.csv and all_benchmark_rank.csv.
+## Update in Progress
 
-### matric_factorization_rank.ipynb
-- **Description**: train and predict rank.
-
-### matric_factorization_score.ipynb
-- **Description**: train and predict original score, then convert the score to rank.
-
-### matric_factorization_norm_score.ipynb
-- **Description**: train and predict normalized score, then convert the score to rank.
