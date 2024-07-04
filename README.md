@@ -55,6 +55,12 @@ python main_with_factors.py crowdsource <mask_size:0.05> <method:"enhanced_neura
 python main_only_factors.py crowdsource <mask_size:0.05> <method:"enhanced_neural_collaborative_filtering"> <random_state:1>
 
 ```
+## Reproduce
+```
+cd reproduce
+# Pilot in HELM Core
+
+```
 
 ## Update in Progress
 
