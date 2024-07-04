@@ -40,5 +40,11 @@ pip install -r requirements.txt
 ## Data
 As the first essential component, our framework supports the use of the historical performance from open-source leaderboards such as the Open LLM leaderboard, HELM, and OpenCompass as a score matrix. The specificity of this data is that the prompt settings are consistent, the matrix density is high, and the performance scores are reliable. Here, we provide the [HELM core leaderboard](https://github.com/Don-Joey/CPP_LLM/blob/main/data/helm_core.csv) as a representative of this type of data. At the same time, we also support extracting the performance of models on tasks from publicly available academic papers, technical reports, and model cards. The [matrix](https://github.com/Don-Joey/CPP_LLM/blob/main/data/crowdsource_performance.csv) produced by this data is characterized by lower density, but it can cover more models and downstream tasks. The variation in testing prompt settings is greater, and the performance scores may not necessarily be accurate. Additionally, we support the introduction of model [factors](https://github.com/Don-Joey/CPP_LLM/blob/main/data/model_feature.csv) and task [factors](https://github.com/Don-Joey/CPP_LLM/blob/main/data/benchmark_feature.csv) for prediction, so we have also collected information on model factors and task factors.
 
+## Training
+```
+# Pilot in HELM Core
+python main_pilot.py helm_core <mask_size>(0.5) <"mf"/"neural_collaborative_filtering"> <random_state>(1)
+```
+
 ## Update in Progress
 
