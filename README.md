@@ -43,7 +43,14 @@ As the first essential component, our framework supports the use of the historic
 ## Training
 ```
 # Pilot in HELM Core
-python main_pilot.py helm_core <mask_size:0.5> <"mf"/"neural_collaborative_filtering"> <random_state:1>
+python main_pilot.py helm_core <mask_size:0.5> <method:"matrix_factorization"/"neural_collaborative_filtering"> <random_state:1>
+
+# Only input models and tasks on our collected data
+python main.py crowdsource <mask_size:0.05> <method:"matrix_factorization"/"neural_collaborative_filtering"> <random_state:1>
+
+# Models, Tasks and Factors
+python main_with_factors.py crowdsource <mask_size:0.05> <method:"matrix_factorization"/"neural_collaborative_filtering"> <random_state:1>
+
 ```
 
 ## Update in Progress
