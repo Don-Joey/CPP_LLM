@@ -43,7 +43,7 @@ As the first essential component, our framework supports the use of the historic
 ## Training
 ```
 # Pilot in HELM Core
-python main_pilot.py helm_core <mask_size>(0.5) <"mf"/"neural_collaborative_filtering"> <random_state>(1)
+python main_pilot.py helm_core <mask_size:0.5> <"mf"/"neural_collaborative_filtering"> <random_state:1>
 ```
 
 ## Update in Progress
