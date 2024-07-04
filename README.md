@@ -59,7 +59,7 @@ python main_only_factors.py crowdsource <mask_size:0.05> <method:"enhanced_neura
 ```
 cd reproduce
 # Pilot in HELM Core
-
+## run pilot.ipynb
 ```
 
 ## Update in Progress
