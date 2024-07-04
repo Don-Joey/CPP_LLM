@@ -11,16 +11,16 @@ from src.mf import MatrixFactorization
 from src.ncf import NeuralCollaborativeFiltering
 
 class SparseMatrixDataset(Dataset):
-    def __init__(self, user_ids, item_ids, ratings):
-        self.user_ids = user_ids
-        self.item_ids = item_ids
+    def __init__(self, model_ids, task_ids, ratings):
+        self.model_ids = model_ids
+        self.task_ids = task_ids
         self.ratings = ratings
     
     def __len__(self):
         return len(self.ratings)
     
     def __getitem__(self, idx):
-        return self.user_ids[idx], self.item_ids[idx], self.ratings[idx]
+        return self.model_ids[idx], self.task_ids[idx], self.ratings[idx]
 
 def train(model, optimizer, criterion, data_loader, num_epochs, device):
     model.train()
@@ -61,7 +61,7 @@ def normalize_scores(scores):
     
     return normalized_scores, max_values - min_values, min_values
 
-# Example sparse data (user_ids, item_ids, ratings for observed entries)
+# Example sparse data (model_ids, task_ids, ratings for observed entries)
 def read_data(csv_path, random_state, mask_size):
 
     score_data = np.genfromtxt(csv_path, delimiter=',', skip_header=1)[:, 1:]
@@ -81,34 +81,34 @@ def read_data(csv_path, random_state, mask_size):
     return score_data, train_array_positions, validate_array_positions, scale, min_value
 
 def load_data(R, subset, scale, min_value):
-    user_ids = []
-    item_ids = []
+    model_ids = []
+    task_ids = []
     ratings = []
     scales_list = []
     min_values_list = []
     for i in range(len(R)):
         for j in range(len(R[i])):
             if not np.isnan(R[i][j]) and np.any(np.all(np.array([i,j]) == subset, axis=1)): 
-                user_ids.append(i)
-                item_ids.append(j)
+                model_ids.append(i)
+                task_ids.append(j)
                 ratings.append(R[i][j])
                 scales_list.append(scale[i])
                 min_values_list.append(min_value[i])
     print("Load Finished")
-    return torch.LongTensor(user_ids), torch.LongTensor(item_ids), torch.FloatTensor(ratings), scales_list, min_values_list
+    return torch.LongTensor(model_ids), torch.LongTensor(task_ids), torch.FloatTensor(ratings), scales_list, min_values_list
 
 
 
 def create_score_table(data):
     """
-    Creates a table where rows are item_ids, columns are user_ids, and
+    Creates a table where rows are task_ids, columns are model_ids, and
     cells contain 'label_score/predicted_score'.
 
     :param data: List of tuples (user_id, item_id, label_score, predicted_score)
     :return: Pandas DataFrame
     """
-    # Create a dictionary where keys are item_ids and values are dictionaries,
-    # where the keys of these sub-dictionaries are user_ids and values are the score strings
+    # Create a dictionary where keys are task_ids and values are dictionaries,
+    # where the keys of these sub-dictionaries are model_ids and values are the score strings
     table_dict = {}
     
     for user_id, item_id, label_score, predicted_score, scale, min_value in data:
@@ -128,7 +128,7 @@ def create_score_table(data):
     return df
 
 
-def evaluate(model, valid_data_loader, criterion, valid_user_ids, valid_item_ids, valid_ratings, device, valid_scales, valid_min_values, model_name, random_state, mask_size):
+def evaluate(model, valid_data_loader, criterion, valid_model_ids, valid_task_ids, valid_ratings, device, valid_scales, valid_min_values, model_name, random_state, mask_size):
     #MSE Loss
     total_loss = 0
     for user, item, rating in valid_data_loader:
@@ -141,7 +141,7 @@ def evaluate(model, valid_data_loader, criterion, valid_user_ids, valid_item_ids
     print("validate_loss", total_loss/len(valid_data_loader))
     #Visualization
     extracted_data = []
-    for user_id, item_id, rating, scale, min_value in zip(valid_user_ids, valid_item_ids, valid_ratings, valid_scales, valid_min_values):
+    for user_id, item_id, rating, scale, min_value in zip(valid_model_ids, valid_task_ids, valid_ratings, valid_scales, valid_min_values):
         predicted_scores = model(user_id.unsqueeze(0).to(device), item_id.unsqueeze(0).to(device))
         extracted_data.append((user_id.item(), item_id.item(), predicted_scores.item(), rating.item(), scale, min_value))
     df = create_score_table(extracted_data)
@@ -158,8 +158,8 @@ def main(data_name, mask_size, model_name, random_state):
     mask_size = mask_size
     for random_state in random_states:
         score_data, train_array_positions, validate_array_positions, scale, min_value = read_data(csv_path=csv_path, random_state=random_state, mask_size=mask_size)
-        user_ids, item_ids, ratings, _, _ = load_data(score_data, train_array_positions, scale, min_value)
-        valid_user_ids, valid_item_ids, valid_ratings, valid_scales, valid_min_values = load_data(score_data, validate_array_positions, scale, min_value)
+        model_ids, task_ids, ratings, _, _ = load_data(score_data, train_array_positions, scale, min_value)
+        valid_model_ids, valid_task_ids, valid_ratings, valid_scales, valid_min_values = load_data(score_data, validate_array_positions, scale, min_value)
 
         # Hyperparameters
         learning_rate = 0.01
@@ -170,9 +170,9 @@ def main(data_name, mask_size, model_name, random_state):
 
 
         # Create a DataLoader for sparse matrix
-        dataset = SparseMatrixDataset(user_ids, item_ids, ratings)
+        dataset = SparseMatrixDataset(model_ids, task_ids, ratings)
         data_loader = DataLoader(dataset, batch_size=16, shuffle=True)
-        valid_dataset = SparseMatrixDataset(valid_user_ids, valid_item_ids, valid_ratings)
+        valid_dataset = SparseMatrixDataset(valid_model_ids, valid_task_ids, valid_ratings)
         valid_data_loader = DataLoader(valid_dataset,  batch_size=16, shuffle=False)
 
         # Initialize model, optimizer, and loss function
@@ -192,7 +192,7 @@ def main(data_name, mask_size, model_name, random_state):
             torch.save(model.state_dict(), model_save_root+"ncf/"+data_name+"-"+model_name+"-"+str(num_epochs)+"-"+str(random_state)+"-"+str(learning_rate)[2:]+"-"+str(num_factors)+"-SGD-mask"+str(int(mask_size*100))+'.pth')
 
         # Example prediction
-        evaluate(model, valid_data_loader, criterion, valid_user_ids, valid_item_ids, valid_ratings, device, valid_scales, valid_min_values, model_name, random_state)
+        evaluate(model, valid_data_loader, criterion, valid_model_ids, valid_task_ids, valid_ratings, device, valid_scales, valid_min_values, model_name, random_state)
     
 if __name__ == '__main__':
     fire.Fire(main)
