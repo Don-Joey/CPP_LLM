@@ -49,7 +49,10 @@ python main_pilot.py helm_core <mask_size:0.5> <method:"matrix_factorization"/"n
 python main.py crowdsource <mask_size:0.05> <method:"matrix_factorization"/"neural_collaborative_filtering"> <random_state:1>
 
 # Models, Tasks and Factors
-python main_with_factors.py crowdsource <mask_size:0.05> <method:"matrix_factorization"/"neural_collaborative_filtering"> <random_state:1>
+python main_with_factors.py crowdsource <mask_size:0.05> <method:"enhanced_neural_collaborative_filtering"> <random_state:1>
+
+# Only Factors
+
 
 ```
 
