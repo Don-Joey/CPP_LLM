@@ -26,13 +26,13 @@ def train(model, optimizer, criterion, data_loader, num_epochs, device):
     model.train()
     for epoch in range(num_epochs):
         total_loss = 0
-        for user, item, rating in data_loader:
-            user = user.to(device)
-            item = item.to(device)
+        for model, task, rating in data_loader:
+            model = model.to(device)
+            task = task.to(device)
             rating = rating.to(device)
             
             optimizer.zero_grad()
-            prediction = model(user, item)
+            prediction = model(model, task)
             loss = criterion(prediction, rating)
             loss.backward()
             optimizer.step()
@@ -104,18 +104,18 @@ def create_score_table(data):
     Creates a table where rows are task_ids, columns are model_ids, and
     cells contain 'label_score/predicted_score'.
 
-    :param data: List of tuples (user_id, item_id, label_score, predicted_score)
+    :param data: List of tuples (model_id, task_id, label_score, predicted_score)
     :return: Pandas DataFrame
     """
     # Create a dictionary where keys are task_ids and values are dictionaries,
     # where the keys of these sub-dictionaries are model_ids and values are the score strings
     table_dict = {}
     
-    for user_id, item_id, label_score, predicted_score, scale, min_value in data:
-        if user_id not in table_dict:
-            table_dict[user_id] = {}
+    for model_id, task_id, label_score, predicted_score, scale, min_value in data:
+        if model_id not in table_dict:
+            table_dict[model_id] = {}
         # Format the cell value as 'label_score/predicted_score'
-        table_dict[user_id][item_id] = f"{label_score*scale+min_value}/{predicted_score*scale+min_value}"
+        table_dict[model_id][task_id] = f"{label_score*scale+min_value}/{predicted_score*scale+min_value}"
         
     # Convert the dictionary to a DataFrame
     df = pd.DataFrame.from_dict(table_dict, orient='index').sort_index()
@@ -131,19 +131,19 @@ def create_score_table(data):
 def evaluate(model, valid_data_loader, criterion, valid_model_ids, valid_task_ids, valid_ratings, device, valid_scales, valid_min_values, model_name, random_state, mask_size):
     #MSE Loss
     total_loss = 0
-    for user, item, rating in valid_data_loader:
-        user = user.to(device)
-        item = item.to(device)
+    for model, task, rating in valid_data_loader:
+        model = model.to(device)
+        task = task.to(device)
         rating = rating.to(device)
-        prediction = model(user, item)
+        prediction = model(model, task)
         loss = criterion(prediction, rating)
         total_loss += loss.item()
     print("validate_loss", total_loss/len(valid_data_loader))
     #Visualization
     extracted_data = []
-    for user_id, item_id, rating, scale, min_value in zip(valid_model_ids, valid_task_ids, valid_ratings, valid_scales, valid_min_values):
-        predicted_scores = model(user_id.unsqueeze(0).to(device), item_id.unsqueeze(0).to(device))
-        extracted_data.append((user_id.item(), item_id.item(), predicted_scores.item(), rating.item(), scale, min_value))
+    for model_id, task_id, rating, scale, min_value in zip(valid_model_ids, valid_task_ids, valid_ratings, valid_scales, valid_min_values):
+        predicted_scores = model(model_id.unsqueeze(0).to(device), task_id.unsqueeze(0).to(device))
+        extracted_data.append((model_id.item(), task_id.item(), predicted_scores.item(), rating.item(), scale, min_value))
     df = create_score_table(extracted_data)
     df.to_csv('pilot_'+model_name+"-"+str(random_state)+"-"+str(int(mask_size*100))+"-factor-10"+'.csv')
     
@@ -164,8 +164,8 @@ def main(data_name, mask_size, model_name, random_state):
         # Hyperparameters
         learning_rate = 0.01
         num_epochs = 200000
-        num_models = len(score_data)   # example number of users
-        num_tasks = len(score_data[0])   # example number of items
+        num_models = len(score_data)   # example number of models
+        num_tasks = len(score_data[0])   # example number of tasks
         num_factors = 10   # number of latent factors
 
 
